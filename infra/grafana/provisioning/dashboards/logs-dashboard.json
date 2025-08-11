@@ -1,0 +1,35 @@
+{
+  "id": null,
+  "uid": "docker-logs",
+  "title": "Docker Container Logs",
+  "tags": ["logs", "docker", "loki"],
+  "timezone": "browser",
+  "schemaVersion": 38,
+  "version": 1,
+  "refresh": "5s",
+  "panels": [
+    {
+      "type": "logs",
+      "title": "All Docker Logs",
+      "datasource": {
+        "type": "loki",
+        "uid": "loki"
+      },
+      "gridPos": { "x": 0, "y": 0, "w": 24, "h": 15 },
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "showLabels": true,
+        "wrapLogMessage": true,
+        "sortOrder": "Descending",
+        "liveStreaming": true
+      },
+      "targets": [
+        {
+          "expr": "{container=~\".+\"}",
+          "refId": "A"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+version: '3.8'
+
+networks:
+  ecom-network:
+    external: true
+
+volumes:
+  userdb_data:
+  productdb_data:
+  orderdb_data:
+  rabbitmq_data:
+
+services:
+  user-db:
+    image: mongo:6.0
+    container_name: ecom-user-db
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: mongo
+      MONGO_INITDB_DATABASE: userdb
+    ports:
+      - "27017:27017"
+    volumes:
+      - userdb_data:/data/db
+    networks:
+      - ecom-network
+
+  product-db:
+    image: postgres:14.18
+    container_name: ecom-product-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: productdb
+    ports:
+      - "5434:5432"
+    volumes:
+      - productdb_data:/var/lib/postgresql/data
+    networks:
+      - ecom-network
+
+  order-db:
+    image: postgres:14.18
+    container_name: ecom-order-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: orderdb
+    ports:
+      - "5435:5432"
+    volumes:
+      - orderdb_data:/var/lib/postgresql/data
+    networks:
+      - ecom-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: ecom-rabbitmq
+    restart: unless-stopped
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_DEFAULT_VHOST: /
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - ecom-network
