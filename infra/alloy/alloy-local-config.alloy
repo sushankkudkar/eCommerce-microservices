@@ -1,0 +1,74 @@
+discovery.docker "docker_containers" {
+  host             = "unix:///var/run/docker.sock"
+  refresh_interval = "5s"
+}
+
+discovery.relabel "docker_containers_relabel" {
+  targets = []
+
+  rule {
+    source_labels = ["__meta_docker_container_name"]
+    regex         = "/(.*)"
+    target_label  = "container"
+  }
+}
+
+loki.source.docker "docker_containers_source" {
+  host             = "unix:///var/run/docker.sock"
+  targets          = discovery.docker.docker_containers.targets
+  forward_to       = [loki.write.default.receiver]
+  relabel_rules    = discovery.relabel.docker_containers_relabel.rules
+  refresh_interval = "5s"
+
+  // Labels are typically configured differently for docker source
+  // Check documentation for the correct attribute name
+}
+
+local.file_match "system_logs_match" {
+  path_targets = [
+    { "__path__" = "/var/log/*.log" },
+  ]
+  sync_period = "5s"
+}
+
+loki.source.file "system_logs_source" {
+  targets       = local.file_match.system_logs_match.targets
+  forward_to    = [loki.write.default.receiver]
+  tail_from_end = true
+
+  // Labels might need to be configured as extra_labels or similar
+  // Check documentation for the correct attribute
+}
+
+local.file_match "app_logs_match" {
+  path_targets = [
+    { "__path__" = "/logs/*.log" },
+  ]
+  sync_period = "5s"
+}
+
+loki.source.file "app_logs_source" {
+  targets       = local.file_match.app_logs_match.targets
+  forward_to    = [loki.write.default.receiver]
+  tail_from_end = true
+
+  // Labels might need to be configured as extra_labels or similar
+  // Check documentation for the correct attribute
+}
+
+loki.write "default" {
+  endpoint {
+    url        = "http://gateway:3100/loki/api/v1/push"
+    tenant_id  = "tenant1"
+
+    // Headers should be configured within the endpoint block
+    headers = {
+      "X-Scope-OrgID" = "tenant1",
+    }
+  }
+
+  external_labels = {
+    cluster = "local",
+    env     = "dev",
+  }
+}
