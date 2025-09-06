@@ -23,3 +23,11 @@ services:
     restart: unless-stopped
     networks:
       - ecom-network
+
+  zipkin:
+    image: openzipkin/zipkin:latest
+    container_name: ecom-zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - ecom-network
