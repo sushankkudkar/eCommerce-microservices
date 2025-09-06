@@ -1,0 +1,25 @@
+networks:
+  ecom-network:
+    external: true
+
+services:
+  user-service:
+    image: docker.io/sushankk/ecom-user:latest
+    container_name: ecom-user-service
+    restart: unless-stopped
+    networks:
+      - ecom-network
+
+  product-service:
+    image: docker.io/sushankk/ecom-product:latest
+    container_name: ecom-product-service
+    restart: unless-stopped
+    networks:
+      - ecom-network
+
+  order-service:
+    image: docker.io/sushankk/ecom-order:latest
+    container_name: ecom-order-service
+    restart: unless-stopped
+    networks:
+      - ecom-network
