@@ -673,3 +673,4 @@ View [releases](https://github.com/grafana/explore-logs/releases/) on GitHub for
 ## 0.1.0
 
 - Release public preview version.
+

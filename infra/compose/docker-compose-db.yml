@@ -102,3 +102,4 @@ services:
       - kafka_data:/var/lib/kafka/data
     networks:
       - ecom-network
+

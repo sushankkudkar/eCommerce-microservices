@@ -11,3 +11,4 @@ public interface UserServiceClient {
     @GetExchange("/api/user/{userId}")
     Optional<UserResponseDto> getUser(@PathVariable String userId);
 }
+

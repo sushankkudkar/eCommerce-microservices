@@ -36,3 +36,4 @@ If your issue is a bug, please open one [here](https://github.com/grafana/explor
 
 We do not have a formal proposal process for changes or feature requests. If you have a change you would like to see in
 Grafana Logs Drilldown, please [file an issue](https://github.com/grafana/explore-logs/issues/new) with the necessary details.
+

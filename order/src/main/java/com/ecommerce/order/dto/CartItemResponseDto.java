@@ -20,3 +20,4 @@ public class CartItemResponseDto {
     private Integer quantity;
     private BigDecimal price;
 }
+

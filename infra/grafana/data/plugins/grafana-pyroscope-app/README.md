@@ -56,3 +56,4 @@ If your issue is a bug, please open one [here](https://github.com/grafana/profil
 
 We do not have a formal proposal process for changes or feature requests. If you have a change you would like to see in
 Grafana Profiles Drilldown, please [file an issue](https://github.com/grafana/profiles-drilldown/issues/new) with the necessary details.
+

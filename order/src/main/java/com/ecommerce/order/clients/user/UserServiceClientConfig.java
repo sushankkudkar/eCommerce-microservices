@@ -22,3 +22,4 @@ public class UserServiceClientConfig {
         return factory.createClient(UserServiceClient.class);
     }
 }
+

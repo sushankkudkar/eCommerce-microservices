@@ -21,3 +21,4 @@ public class ProductUpdateRequestDto {
     private String imageUrl;
     private Boolean active;
 }
+

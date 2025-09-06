@@ -519,3 +519,4 @@ Key features include:
 - Bump version to 0.1.0 ([3e480f9](https://github.com/grafana/explore-profiles/commit/3e480f90c06cba6d9ac3558026a1c892963db4c6))
 - **SingleView:** Remove page ([#20](https://github.com/grafana/explore-profiles/issues/20)) ([16da70d](https://github.com/grafana/explore-profiles/commit/16da70d7f424c17982a8ca1ceab24a2589121007))
 - Various minor improvements ([#46](https://github.com/grafana/explore-profiles/issues/46)) ([877b009](https://github.com/grafana/explore-profiles/commit/877b0094ffd21794b5742db6fbfb32ebd5868a4c))
+

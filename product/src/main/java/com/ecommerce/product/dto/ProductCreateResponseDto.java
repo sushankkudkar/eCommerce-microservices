@@ -21,3 +21,4 @@ public class ProductCreateResponseDto {
     private String imageUrl;
     private Boolean active;
 }
+

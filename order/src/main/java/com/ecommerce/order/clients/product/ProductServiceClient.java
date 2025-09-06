@@ -11,3 +11,4 @@ public interface ProductServiceClient {
     @GetExchange("/api/product/{id}")
     Optional<ProductCreateResponseDto> getProductDetails(@PathVariable Long id);
 }
+

@@ -27,3 +27,4 @@ If your issue is a bug, please open one [here](https://github.com/grafana/metric
 ### Changes
 
 We do not have a formal proposal process for changes or feature requests. If you have a change you would like to see in Grafana Metrics Drilldown, please [file an issue](https://github.com/grafana/metrics-drilldown/issues/new) with the necessary details.
+

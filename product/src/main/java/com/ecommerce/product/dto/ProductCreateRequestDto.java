@@ -20,3 +20,4 @@ public class ProductCreateRequestDto {
     private String imageUrl;
     private Boolean active;
 }
+

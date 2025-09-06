@@ -23,3 +23,4 @@ public class OrderCreatedEventDto {
     private List<OrderItemDto> items;
     private LocalDateTime createdAt;
 }
+

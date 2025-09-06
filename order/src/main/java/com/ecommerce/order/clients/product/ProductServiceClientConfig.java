@@ -22,3 +22,4 @@ public class ProductServiceClientConfig {
         return factory.createClient(ProductServiceClient.class);
     }
 }
+

@@ -18,3 +18,4 @@ public class UserResponseDto {
     private String role;
     private AddressDto address;
 }
+

@@ -18,3 +18,4 @@ public class UserCreateRequestDto {
     private UserRole role = UserRole.CUSTOMER;
     private AddressDto address;
 }
+

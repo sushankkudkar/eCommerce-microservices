@@ -135,3 +135,4 @@ ps: ensure-network
 	nerdctl compose -f infra/compose/docker-compose-db.yml ps
 	nerdctl compose -f infra/compose/docker-compose-monitoring.yml ps
 	nerdctl compose -f infra/compose/docker-compose-services.yml ps
+

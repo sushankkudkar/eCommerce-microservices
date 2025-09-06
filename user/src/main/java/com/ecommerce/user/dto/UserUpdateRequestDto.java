@@ -18,3 +18,4 @@ public class UserUpdateRequestDto {
     private UserRole role;
     private AddressDto address;
 }
+
